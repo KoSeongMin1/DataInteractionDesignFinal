@@ -1,0 +1,196 @@
+<!DOCTYPE html>
+<html lang="kr">
+<head>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Nanum+Gothic&display=swap');
+        @import url('https://fonts.googleapis.com/css2?family=Black+Han+Sans&family=Nanum+Gothic&display=swap');
+    </style>
+    <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
+    <script type="text/javascript">
+      google.charts.load('current', {'packages':['corechart']});
+      google.charts.setOnLoadCallback(drawVisualization);
+
+      function drawVisualization() {
+        // Some raw data (not necessarily accurate)
+        var data = google.visualization.arrayToDataTable([
+          ['년도', '부상자(명)', '사고건수(건)'],
+          ['2017',      124,         117],
+          ['2018',      238,        225],
+          ['2019',      473,        447],
+          ['2020',      985,        873],
+        ]);
+
+        var options = {
+          title : '전동킥보드 등 개인형이동수단(PM)으로 인한 교통사고 현황',
+          seriesType: 'bars',
+          series: {1: {type: 'line'}},
+          colors: ['#888888', '#ff0000'],
+        };
+
+        var chart = new google.visualization.ComboChart(document.getElementById('chart_div_1'));
+        chart.draw(data, options);
+      }
+    </script>
+    <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
+    <script type="text/javascript">
+      google.charts.load('current', {'packages':['corechart']});
+      google.charts.setOnLoadCallback(drawChart);
+
+      function drawChart() {
+
+        var data = google.visualization.arrayToDataTable([
+          ['위해원인', '건수'],
+          ['주행 중 사고',     1328],
+          ['제품 관련', 380],
+        ]);
+
+        var options = {
+          title: '전동킥보드 관련 사고 발생 원인 (2018~2021.06 기준)',
+          colors: ['#424242', '#888888'],
+        };
+
+        var chart = new google.visualization.PieChart(document.getElementById('piechart'));
+
+        chart.draw(data, options);
+      }
+    </script>
+        <script  type="text/javascript">
+
+          // Load the Visualization API and the corechart package.
+          google.charts.load('current', {'packages':['corechart']});
+    
+          // Set a callback to run when the Google Visualization API is loaded.
+          google.charts.setOnLoadCallback(init);
+  
+          function init() {
+          var options = {
+          title : '전동킥보드 사고 사망자수 증가 폭(2017~2020)',
+          width: 400,
+          height: 240,
+          colors: ['#ff0000'],
+          animation:{
+              duration: 1000,
+              easing: 'out',
+          },
+          vAxis: {minValue:0, maxValue:10}
+          };
+          var data = new google.visualization.DataTable();
+          data.addColumn('string', '전체');
+          data.addColumn('number', '수');
+          data.addRow(['사망자', 4]);
+  
+          var chart = new google.visualization.ColumnChart(
+              document.getElementById('visualization'));
+          var button = document.getElementById('b1');
+  
+          function drawChart() {
+          // Disabling the button while the chart is drawing.
+          button.disabled = true;
+          google.visualization.events.addListener(chart, 'ready',
+              function() {
+                  button.disabled = false;
+              });
+          chart.draw(data, options);
+          }
+  
+          button.onclick = function() {
+          var newValue = 14 - data.getValue(0, 1);
+          data.setValue(0, 1, newValue);
+          drawChart();
+          }
+          drawChart();
+      }
+      </script>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <title>전동킥보드 사고, 다음번엔 당신이 되지 않기 위해</title>
+</head>
+<body>
+    <div id="wrap">
+        <img src="img/main_img.png" alt="main_img" id="main_img">
+        <header>
+            <h1>전동킥보드 사고<br>다음번엔 당신이 되지 않기 위해</h1>
+            <h2>by. 2022491001 고성민</h2>
+        </header>
+        <div class="clear"></div>
+        <div class="section_wrap">
+          <section id="part1">
+            <p>지난 5월 12일, 서울 강남의 도로 한복판에서 전동킥보드를 타던 20대 남성 두 명이 차량에 치여 사망하는 사고가 발생했다.
+                작년 10월 29일에는 헬멧 없이 전동킥보드를 타던 17살 고교생이 전신주를 들이받고 사망하는 사고가 발생했으며,
+                2020년 4월 12일 부산에서는 공유 전동 킥보드를 타고 횡단보도를 건너던 남성이 차량과 충돌해 사망하는 사고가 발생하기도 했다.
+                서울시에 따르면 2018년 <span>150</span>대 수준에 불과하였던 공유 전동 킥보드는 2020년 약 <span>35,850</span>대로 급증하였으며, 2021년 6월 기준 서울 내 14개 전동킥보드 대여사업자가 총 <span>55,499</span>대의 공유 전동킥보드를 운용하고 있다고 한다.
+                그러나 이런 전동킥보드 사용량이 증가할수록, 전동킥보드 사고로 인해 부상을 입거나 심지어 사망하는 사고가 증가하고 있다.
+                이런 부상 및 사망사고를 줄이기 위해서 우리는 어떻게 해야 할까?</p>
+        </section>
+        <div class="clear"></div>
+        <section id="part2">
+            <h3>점점 늘어나는 전동킥보드 사고</h3>
+            <p>TAAS 교통사고분석시스템에 따르면 전동킥보드를 포함한 개인형 이동장치(PM) 사고는 2017년에 <span>117</span>건, 2018년에 <span>225</span>건, 2019년에 <span>447</span>건, 2020년에 <span>873</span>건에 달했다.
+              개인형 이동장치 사고로 인한 사망자는 2017년에 <span>4</span>명, 2018년에 <span>4</span>명, 2019년에 <span>8</span>명, 2020년에 <span>10</span>명으로 집계되었으며,
+              개인형 이동장치 사고로 인한 부상자는 2017년에 <span>124</span>명, 2018년에 <span>238</span>명, 2019년에 <span>473</span>명, 2020년에 <span>985</span>명으로 집계되었다.
+              이처럼 전동킥보드 사고와 그로인한 사망자 및 부상자 수는 2017년부터 꾸준한 증가치를 보였으며 앞으로도 더 늘어날 전망이다.</p>
+            <div id="chart_div_1" style="width: 440px; height: 240px;"></div>
+            <div class="visualdiv">
+              <div id="visualization"></div>
+              <button id="b1" style="background: #cccccc; color: #4e2d2d; font-family: sans-serif; font-size: 12; width:100px; height: 50px; border: none;">Click</button>
+            </div>
+        </section>
+        <div class="clear"></div>
+        <img src="img/part3-img.png" alt="part3-img" id="part3img">
+        <section id="part3">
+            <h3>도대체 왜 이런 사고가 일어나는 걸까</h3>
+            <p>한국소비자원에서 시행한 전동킥보드 공유서비스 안전실태조사에 따르면 2018년부터 2021년 상반기까지 전동킥보드 관련 위해사례는 총  <span>1,708건</span>이 접수되었으며, 그중 <span>1,328건</span>(77.8%)이 미끄러짐, 넘어짐, 부딪힘 등 <span>주행 사고로 인한 위해 사례</span>로 접수가 되었다.
+                그리고 전체 사례중 신체 상해가 확인된 사례는 <span>1458건</span>으로, 그 중 <span>머리 및 얼굴</span> 부위가 <span>756</span>(51.9%)로 가장 많았고, 이 중 뇌진탕 등 <span>심각한 부상으로 연결될 수 있는 부위에 위해를 입은 사례가 157건</span>(10.8%)에 달했다.
+                해당 사례에서 확인된 위해증상은 <span>열상(찢어짐)</span>이 <span>452건(</span>31.0%)으로 가장 많았고, <span>354건</span>의 <span>골절상</span>(24.3%), <span>210건</span>의 <span>타박상</span>(14.4%)이 그 뒤를 이었다.</p>
+            <div id="piechart" style="width: 480px; height: 400px;"></div>
+        </section>
+        <div class="clear"></div>
+        <section id="part4">
+          <h3>사람들이 전동킥보드를 어떻게 타길래 사고가 일어날까</h3>
+          <p>한국소비자원에서는 서울 지역 공유 전동킥보드가 가장 밀집된 구역 10곳(서초구 교대역, 마포구 홍대입구역, 서대문구 신촌역 등)을 선정하여
+            2021년 5월 14일부터 6월 4일까지 해당 구역 내 전동킥보드 이용 사례를 조사했다.
+            해당 지역 10개소에서 총 87건의 전동킥보드 이용 사례가 확인되었지만, 이중 <span>73건(83.9%)은 승차용 안전모 등 보호장비를 착용하지 않았다.</span>
+            그리고 전체 이용 사례 중 <span>60건(69.0%)은 전동킥보드의 이용이 금지되어 있는 보도에서 주행하고 있었으며,</span>
+            전동킥보드의 이용이 허용된 자전거 도로나 차도에서 주행한 경우 27건중 <span>2건(7.4%)은 도로 중앙선을 기준으로 좌측 부분에서 주행하여 우측통행 규정을 위반하였다.</span>
+            그 외에도 전동킥보드를 이용 중 횡단보도를 이용한 사례 37건 중 <span>전동킥보드에서 하차하여 보행으로 통과한 이용자는 단 2건(5.4%)에 불과하였고,</span>
+            전체 이용 사례 중 <span>3건(3.4%)은 2명 이상의 인원이 동시에 탑승한 상태로 주행하여 승차정원(1명)을 초과하였다.</span> 심지어 <span>전동킥보드 운전 중 휴대전화를 사용 하는 1(1.1%)건의 사례</span>도 있었다.</p>
+          <img src="img/part4-img.png" alt="part4-img" id="part4-img">
+        </section>
+        <section id="part5">
+            <h3>그럼 어떻게 해야 안전하게 탈 수 있을까</h3>
+            <p>전동킥보드 운전자는 도로를 운전할 때 <span>승차용 안전모를 착용해야 한다.</span>
+              안전모 외에도 부상 방지를 위해 장갑 및 손목보호대, 무릎, 및 팔꿈치 보호대 등의 안전보호장구를 착용하고 전동킥보드 등을 운전하는 것이 좋다.
+              또한 전동킥보드 운전자는 자전거만 통행할 수 있도록 설치된 전용차로를 포함한 <span>자전거도로에서 통행해야 한다.</span>
+              전동킥보드 운전자가 횡단보도를 이용하여 도로를 횡단할 때에는 <span>전동킥보드에서 내려서 전동킥보드를 끌거나 들고 보행</span>해야 한다.
+              전동킥보드 운전자는 운전자를 포함한 1명의 <span>승차정원을 초과하여 동승자를 태우고 운전하면 안되며,</span>
+              만약 이를 어긴 사람에게는 4만원의 범칙금이 부과된다.
+              전동킥보드 운전자는 <span>운전 중에는 휴대용 전화를 사용하면 안 되며,</span> 이를 위반할 시 2만원의 범칙금이 부과된다.</p>
+            <br>
+            <img src="img/part5-img.png" alt="part5-img">
+            <p>지금까지 <span>안전모 착용</span>, <span>자전거도로 통행</span>, <span>횡단보도에서 탑승 금지</span>, <span>동승자 탑승 금지</span>, <span>운전중 휴대전화 사용 금지</span> 등의 규칙을 알아보았다.
+              어찌보면 누구나 아는 당연하고 간단한 규칙이지만, 그런 당연하고 간단할 규칙일수록 잘 지켜야 되는 법이다.</p>
+        </section>
+        </div>
+        <div class="clear"></div>
+        <footer>
+            <p>자료 출처</p>
+            <ul>
+                <li><a href="https://www.yna.co.kr/view/MYH20220512021000641">연합뉴스_전동킥보드 타던 20대 2명 차에 치여 숨져…'위험천만'</a></li>
+                <li><a href="https://www.seoul.co.kr/news/newsView.php?id=20211029500134">서울신문_헬멧 없이 전동킥보드 타던 17살 고교생 전신주 들이받고 사망</a></li>
+                <li><a href="https://www.yna.co.kr/view/AKR20200412010352051">연합뉴스_'라임' 킥보드 운전자, 차량에 치여 숨져…부산 첫 사망사고(종합2보)</a></li>
+                <li><a href="http://www.bicyclelife.net/news/articleView.html?idxno=122">자전거생활_100년 전부터 시작된 역사, 이제야 꽃피우다</a></li>
+                <li><a href="https://www.joongang.co.kr/article/23854863#home">중앙일보 칼럼_대중교통으로 진화하는 공유 전동 킥보드</a></li>
+                <li><a href="http://taas.koroad.or.kr/">TAAS 교통사고분석시스템_2017~2020 교통사고 통계보고서</a></li>
+                <li><a href="https://www.data.go.kr/data/15087990/fileData.do">도로교통공단_가해운전자 차종별 교통사고 통계_20191231</a></li>
+                <li><a href="https://www.data.go.kr/data/15087988/fileData.do">도로교통공단_개인형이동수단(PM)교통사고 발생월별 가해연령별 현황_20191231</a></li>
+                <li><a href="https://www.dbpia.co.kr/Journal/articleDetail?nodeId=NODE09326900">한국소비자원_전동킥보드 공유서비스 안전실태조사</a></li>
+                <li><a href="https://www.safetynews.co.kr/news/articleView.html?idxno=202717">안전신문_전동킥보드 사고 원인, ‘운전미숙·과속’이 65% 육박</a></li>
+                <li>2022.05.24 제작</li>
+            </ul>
+        </footer>
+        <div class="clear"></div>
+    </div>
+</body>
+</html>
